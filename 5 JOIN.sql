@@ -38,12 +38,21 @@ JOIN game ON (matchid=id AND teamid != 'GER')
 WHERE team1 = 'GER' OR team2 = 'GER'
 
 -- # 9
-
+SELECT teamname, COUNT(*) as GOALS
+  FROM eteam JOIN goal ON id=teamid 
+ GROUP BY teamname
 
 -- # 10
-
+SELECT stadium, COUNT(*) as GOALS
+FROM game JOIN goal ON (matchid = id) 
+GROUP by stadium
 
 -- # 11
+SELECT matchid,mdate, COUNT(player) AS GOALS
+  FROM game JOIN goal ON (id = matchid ) 
+ WHERE (team1 = 'POL' OR team2 = 'POL') 
+GROUP BY matchid
+
 
 
 -- # 12
