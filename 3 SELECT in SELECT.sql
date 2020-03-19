@@ -29,7 +29,9 @@ WHERE name = 'Germany') * 100),'%') FROM world
 WHERE  continent = 'Europe';
 
 -- #6
-
+SELECT name FROM world 
+WHERE gdp >  (SELECT MAX(GDP) FROM world
+WHERE continent = 'Europe');
 
 -- #7
 
