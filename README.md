@@ -1,2 +1,2 @@
 # SQL-ZOO
-Solutions of the SQL-ZOO modules 1-10
+Solutions of the SQL-ZOO modules 0 - 08
