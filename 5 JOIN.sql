@@ -56,13 +56,6 @@ GROUP BY matchid
 
 
 -- # 12
-
-
--- # 13
-
-
--- # 14
-
-
--- # 15
-
+SELECT matchid, mdate, COUNT(player) AS Ger_GOALS
+FROM game JOIN goal ON (id = matchid AND teamid = 'GER')
+group by matchid
