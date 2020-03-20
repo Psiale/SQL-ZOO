@@ -78,7 +78,17 @@ GROUP BY actorid HAVING COUNT(casting.movieid) >= 15
 ORDER BY name
 
 -- #14
-
+SELECT title, COUNT(casting.actorid) from movie
+JOIN casting  ON (movie.id = casting.movieid)
+JOIN actor ON (actor.id = casting.actorid)
+WHERE yr = 1978  GROUP by casting.movieid 
+ORDER BY COUNT(casting.actorid) DESC , title
 
 -- #15
-
+SELECT DISTINCT name FROM  movie
+JOIN casting ON (movie.id = casting.movieid)
+JOIN actor ON (actor.id = casting.actorid AND name != 'Art Garfunkel')
+WHERE movie.id IN (SELECT movieid FROM casting
+WHERE actorid IN (
+  SELECT id FROM actor
+  WHERE name='Art Garfunkel'))
